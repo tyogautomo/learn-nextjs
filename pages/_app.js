@@ -1,6 +1,7 @@
 import { ChakraProvider, ColorModeScript } from '@chakra-ui/react';
 
 import '../styles/globals.css';
+import '../styles/landingpage.css';
 import theme from '../themes';
 import NavbarProvider from '../contexts/NavbarContext';
 

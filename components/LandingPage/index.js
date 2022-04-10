@@ -1,8 +1,6 @@
 import React from 'react';
 import { Flex, Text, Box, Image, useColorMode } from '@chakra-ui/react';
 
-import styles from '../../styles/landingpage.module.css';
-
 const LandingPage = ({ profile }) => {
   const { colorMode } = useColorMode();
   return (
@@ -31,7 +29,7 @@ const LandingPage = ({ profile }) => {
             <div>
               <Text fontSize={'2xl'} fontWeight="bold" borderBottomWidth="1px">{prof.name}</Text>
               <Text fontSize={'xl'} color="gray">{prof.job}</Text>
-              <Text fontSize={'lg'}><span className={styles.span}>message:</span>  &quot;{prof.greeting}&quot;</Text>
+              <Text fontSize={'lg'}><span className="span">message:</span>  &quot;{prof.greeting}&quot;</Text>
             </div>
           </Box>
         ))}
