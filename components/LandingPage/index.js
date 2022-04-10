@@ -1,9 +1,10 @@
 import React from 'react';
-import { Flex, Text, Box, Image } from '@chakra-ui/react';
+import { Flex, Text, Box, Image, useColorMode } from '@chakra-ui/react';
 
 import styles from '../../styles/landingpage.module.css';
 
 const LandingPage = ({ profile }) => {
+  const { colorMode } = useColorMode();
   return (
     <>
       <Text fontSize="5xl" margin="2rem 0" textAlign="center" fontWeight="bold">
@@ -18,7 +19,7 @@ const LandingPage = ({ profile }) => {
             marginBottom="3"
             display="flex"
             alignItems="center"
-            backgroundColor="white"
+            bgColor={colorMode === 'light' ? 'white' : '#232f3b' }
             boxShadow="md"
             cursor="pointer"
             width={'xl'}

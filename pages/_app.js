@@ -1,12 +1,14 @@
-import { ChakraProvider } from '@chakra-ui/react';
+import { ChakraProvider, ColorModeScript } from '@chakra-ui/react';
 
 import '../styles/globals.css';
+import theme from '../themes';
 import NavbarProvider from '../contexts/NavbarContext';
 
 function MyApp({ Component, pageProps }) {
   return (
-    <ChakraProvider>
+    <ChakraProvider theme={theme}>
       <NavbarProvider>
+        <ColorModeScript initialColorMode={theme.config.initialColorMode} />
         <Component {...pageProps} />
       </NavbarProvider>
     </ChakraProvider>

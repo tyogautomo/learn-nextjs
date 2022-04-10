@@ -1,5 +1,6 @@
 import React, { createContext } from 'react';
-import { Flex, Box, Button } from '@chakra-ui/react';
+import { Flex, Box, Button, useColorMode, Switch, color } from '@chakra-ui/react';
+import { MoonIcon } from '@chakra-ui/icons';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
 
@@ -7,8 +8,7 @@ const NavbarContext = createContext({});
 
 const NavbarProvider = ({ children }) => {
   const router = useRouter();
-  console.log(router);
-
+  const { colorMode, toggleColorMode } = useColorMode();
   const handleLink = () => {
     let content = { url: '', title: '' };
     const pathName = router.pathname;
@@ -25,20 +25,28 @@ const NavbarProvider = ({ children }) => {
     return content;
   };
 
+  const handleToggle = (e) => {
+    toggleColorMode();
+  };
+
   const renderHeader = () => (
     <>
-      <Box height="16" width="full" border="1px" />
+      <Box height="16" width="full" />
       <Flex
         width="full"
         height="16"
-        backgroundColor="white"
+        // backgroundColor="white"
         boxShadow="md"
         position="fixed"
         top="0"
-        justifyContent="end"
+        justifyContent="space-between"
         alignItems="center"
         px="3"
       >
+        <Flex alignItems="center">
+          <MoonIcon width={7} height={7} mr="2" color={colorMode === 'light' ? 'silver' : 'yellow'} />
+          <Switch size="lg" onChange={handleToggle} />
+        </Flex>
         <Link href={handleLink().url} passHref>
           <Button backgroundColor="tomato" color="white">{handleLink().title}</Button>
         </Link>

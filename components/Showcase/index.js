@@ -1,9 +1,11 @@
 import React from 'react';
 import axios from 'axios';
 import useSWR from 'swr';
-import { Text, Flex, Box, Image, Container } from '@chakra-ui/react';
+import { Text, Flex, Box, Image, Container, useColorMode } from '@chakra-ui/react';
 
 const Showcase = () => {
+  const { colorMode } = useColorMode();
+
   const fetcher = async (path) => {
     try {
       const { data } = await axios.get(`http://localhost:3000/${path}`);
@@ -35,6 +37,7 @@ const Showcase = () => {
               borderColor="black"
               transition="ease-in"
               transitionDuration="0.1s"
+              bgColor={colorMode === 'light' ? 'white' : '#232f3b'}
               _hover={{
                 boxShadow: 'md'
               }}
