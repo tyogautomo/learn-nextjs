@@ -33,14 +33,17 @@ const Showcase = () => {
               borderRadius="xl"
               overflow="hidden"
               borderColor="black"
-              _active={{
-                
+              transition="ease-in"
+              transitionDuration="0.1s"
+              _hover={{
+                boxShadow: 'md'
               }}
             >
               <Image alt="image" src={user.photo} />
-              <Box p="2">
+              <Box p="3">
                 <Text mb="2" fontWeight="bold">{user.title}</Text>
-                <Text fontSize="10">{new Date().toString()}</Text>
+                <Text fontSize="xs" fontWeight="bold" mb="1" color="gray">Created at</Text>
+                <Text fontSize="10">{new Date().toLocaleString()}</Text>
               </Box>
             </Box>
           ))}
