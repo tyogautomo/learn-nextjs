@@ -35,7 +35,7 @@ const NavbarProvider = ({ children }) => {
       <Flex
         width="full"
         height="16"
-        // backgroundColor="white"
+        bgColor={colorMode === 'light' ? 'white' : '#232f3b' }
         boxShadow="md"
         position="fixed"
         top="0"
